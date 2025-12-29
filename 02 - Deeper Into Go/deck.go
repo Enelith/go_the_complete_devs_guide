@@ -26,3 +26,8 @@ func (d deck) print() {
 		println(index, card)
 	}
 }
+
+// Return the "hand" (from 0 to handSize of the original deck), and the rest of the deck (from handSize to the rest of the dec)
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
+}
