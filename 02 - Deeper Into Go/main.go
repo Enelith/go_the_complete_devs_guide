@@ -1,14 +1,10 @@
 package main
 
-import "fmt"
-
 func main() {
-	cards := []string{newCard(), "Ace of Diamonds"}
+	cards := deck{newCard(), "Ace of Diamonds"}
 	cards = append(cards, "Six of Spades") // Add an element to the end of the slice
 
-	for key, value := range cards {
-		fmt.Println(key, value)
-	}
+	cards.print()
 }
 
 func newCard() string {
