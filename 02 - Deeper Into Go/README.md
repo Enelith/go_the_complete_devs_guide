@@ -71,3 +71,7 @@ Any variable of type "deck" now get access to the "print" method
 Note: Go is not a class-based / object-oriented OO language, but it does support methods on types (receiver functions)
 which vaguely resemble classes in other languages.
 Therefore, we never use the terms "class" or "object" in Go. Likewise, Go avoids any mention of "this" or "self".
+
+## References
+
+- [Go by Example](https://gobyexample.com/)
