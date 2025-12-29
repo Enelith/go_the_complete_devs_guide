@@ -3,12 +3,12 @@ package main
 import "fmt"
 
 func main() {
-	//var card string = "Ace of Spades"
-	//card := "Ace of Spades" // New Variable
-	//card = "Five of Diamonds" // Variable assignment
-	card := newCard()
+	cards := []string{newCard(), "Ace of Diamonds"}
+	cards = append(cards, "Six of Spades") // Add an element to the end of the slice
 
-	fmt.Println(card)
+	for key, value := range cards {
+		fmt.Println(key, value)
+	}
 }
 
 func newCard() string {
