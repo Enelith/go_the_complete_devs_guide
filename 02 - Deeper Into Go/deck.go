@@ -63,7 +63,7 @@ func newDeckFromFile(filename string) deck {
 // Therefore, we need to implement the method in a way we can randomly change the seed, and the result will be different
 func (d deck) shuffle() {
 	for i := range d {
-		newPosition := rand.Intn(len(d) - 1)
+		newPosition := rand.Intn(len(d))
 
 		d[i], d[newPosition] = d[newPosition], d[i]
 	}
@@ -74,7 +74,7 @@ func (d deck) realShuffle() {
 	r := rand.New(source)
 
 	for i := range d {
-		newPosition := r.Intn(len(d) - 1)
+		newPosition := r.Intn(len(d))
 
 		d[i], d[newPosition] = d[newPosition], d[i]
 	}
