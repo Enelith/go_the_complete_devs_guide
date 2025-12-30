@@ -19,6 +19,20 @@ The program will have the following methods and functionalities:
 - saveToFile: Save a list of cards to a file on the local machine.
 - newDeckFromFile: Read and load a list of cards from a file on the local machine.
 
+## Shuffle logic
+For each index, cards in CARDS,
+- Generate a random number between 0 and len(CARDS) - 1
+- Swap the cards at index and the random number
+
+Note regarding the course (as of Go 1.25.5, it doesn't seem to be the case and works fine):
+
+The shuffle function is not actually really shuffling the cards. 
+
+In order to succeed an actual shuffle, we need to generate a random number between 0 and len(CARDS) - 1
+in a way that is repeatable. We also need to modify the Seed value so that the random number generator is indeed random.
+
+Check : https://pkg.go.dev/math/rand
+
 ## Notions
 
 ### Arrays & Slices (in a Nutshell)

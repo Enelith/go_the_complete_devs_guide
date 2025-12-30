@@ -18,6 +18,12 @@ func main() {
 	fmt.Println("Loaded deck: ", cards)
 	//	cards.print()
 
+	cards.shuffle()
+	fmt.Println("Shuffling deck: ", cards)
+
+	cards.realShuffle()
+	fmt.Println("Real Shuffling deck: ", cards)
+
 	fmt.Println("Deal 5 cards: ")
 	hand, remainingCards := deal(cards, 5)
 

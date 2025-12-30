@@ -2,8 +2,10 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 // Create a new type of 'deck'
@@ -55,4 +57,25 @@ func newDeckFromFile(filename string) deck {
 		os.Exit(1)
 	}
 	return deck(strings.Split(string(byteSlice), ","))
+}
+
+// This method will always shuffle the deck the same way, as the randomness here depends on the 'rand' Seed (check https://pkg.go.dev/math/rand) which is always the same by default.
+// Therefore, we need to implement the method in a way we can randomly change the seed, and the result will be different
+func (d deck) shuffle() {
+	for i := range d {
+		newPosition := rand.Intn(len(d) - 1)
+
+		d[i], d[newPosition] = d[newPosition], d[i]
+	}
+}
+
+func (d deck) realShuffle() {
+	source := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(source)
+
+	for i := range d {
+		newPosition := r.Intn(len(d) - 1)
+
+		d[i], d[newPosition] = d[newPosition], d[i]
+	}
 }
